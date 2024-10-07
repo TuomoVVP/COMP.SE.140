@@ -1,0 +1,1 @@
+Containers share network resources, files system access, process isolation and resource limits with the host.

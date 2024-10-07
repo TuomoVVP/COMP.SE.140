@@ -1,0 +1,10 @@
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                    NAMES
+cb5f8c2789e0   compse140-service1   "flask run --debug"      3 minutes ago   Up 3 minutes   0.0.0.0:8199->5000/tcp   compse140-service1-1
+448755e25547   compse140-service2   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:3000->3000/tcp   compse140-service2-1
+
+NETWORK ID     NAME                                     DRIVER    SCOPE
+605b90c7db19   bridge                                   bridge    local
+608c298b57a8   compse140_app-network                    bridge    local
+2be0d7adc6e7   compse140_default                        bridge    local
+dbf01158fbb6   host                                     host      local
+271cbf324534   none                                     null      local

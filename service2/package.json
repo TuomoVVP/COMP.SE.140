@@ -1,0 +1,13 @@
+{
+  "name": "node-service",
+  "version": "1.0.0",
+  "description": "A simple service to retrieve system information",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-service": "file:"
+  }
+}
