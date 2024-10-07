@@ -1,0 +1,6 @@
+I used ChatGPT to help me remind the basics of docker containers and to give me some hints 
+for coding. 
+LLM helped me to focus on the important parts of the exercise because it made it faster to solve some bugs
+that could have taken lot of time manually. 
+It was little bit difficult for LLM to understand how to get data from another container, and lot of problem solving 
+had to be made on my own. I also didn't want LLM to do everything for me for learning purposes.
