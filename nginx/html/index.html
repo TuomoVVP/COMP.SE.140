@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+        }
+        .button-container {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Monitor</h1>
+    <div class="button-container">
+        <button onclick="sendRequest()">REQUEST</button>
+        <button onclick="stopSystem()">STOP</button>
+    </div>
+    <textarea id="responseArea" readonly></textarea>
+
+    <script>
+        async function sendRequest() {
+            try {
+                const response = await fetch('/api/', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                document.getElementById('responseArea').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('responseArea').value = 'Error: ' + error.message;
+            }
+        }
+
+        async function stopSystem() {
+            try {
+                await fetch('/stop', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                document.getElementById('responseArea').value = 'System is shutting down...';
+            } catch (error) {
+                document.getElementById('responseArea').value = 'Error stopping system: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

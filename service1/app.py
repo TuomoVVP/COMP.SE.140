@@ -3,6 +3,8 @@ import psutil
 import socket
 import time
 import requests
+import os
+import signal
 
 app = Flask(__name__)
 
@@ -38,6 +40,12 @@ def get_service2_info(service_url):
     return {"error": "Could not fetch service info after multiple attempts."}
 
 
+@app.route('/stop', methods=['POST'])
+def stop_system():
+    # Send SIGTERM to parent process (Docker container)
+    os.kill(1, signal.SIGTERM)
+    return jsonify({"message": "Shutting down..."})
+
 @app.route('/')
 def info():
     service1_info = {
@@ -48,14 +56,13 @@ def info():
             'time_since_boot_seconds': get_time_since_boot()
         }
     }
-
     service2_info = get_service2_info('http://service2:3000/info')
-
     response = {
         "Service 1": service1_info,
         "Service 2": service2_info
     }
-
+    # Add 2-second delay after responding
+    time.sleep(2)
     return jsonify(response)
 
 if __name__ == '__main__':
