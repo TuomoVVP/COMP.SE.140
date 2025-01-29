@@ -1,10 +1,17 @@
-CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                    NAMES
-cb5f8c2789e0   compse140-service1   "flask run --debug"      3 minutes ago   Up 3 minutes   0.0.0.0:8199->5000/tcp   compse140-service1-1
-448755e25547   compse140-service2   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:3000->3000/tcp   compse140-service2-1
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS              PORTS                  NAMES
+a1f11f8ef796   nginx:alpine           "/docker-entrypoint.…"   17 minutes ago   Up About a minute   0.0.0.0:8198->80/tcp   compse140-nginx-1
+2ef7321d5f6f   compse140-service1-1   "flask run --debug"      17 minutes ago   Up About a minute   5000/tcp               compse140-service1-1-1
+a5290b65e50a   compse140-service1-2   "flask run --debug"      17 minutes ago   Up About a minute   5000/tcp               compse140-service1-2-1
+cf547a645be8   compse140-service1-3   "flask run --debug"      17 minutes ago   Up About a minute   5000/tcp               compse140-service1-3-1
+2d7a5d9d54c6   compse140-service2     "docker-entrypoint.s…"   17 minutes ago   Up About a minute   3000/tcp               compse140-service2-1
 
 NETWORK ID     NAME                                     DRIVER    SCOPE
-605b90c7db19   bridge                                   bridge    local
+6609b7538a1e   bridge                                   bridge    local
 608c298b57a8   compse140_app-network                    bridge    local
 2be0d7adc6e7   compse140_default                        bridge    local
 dbf01158fbb6   host                                     host      local
 271cbf324534   none                                     null      local
+f20bdc3f3d69   ryhma22_backend                          bridge    local
+1604664bd274   timedu-nosql2024-ex01a-3c526cf_default   bridge    local
+63c0997295a2   timedu-nosql2024-ex01b-e4a89bc_default   bridge    local
+ccdaa54b45d9   timedu-nosql2024-ex02a-3cd0523_default   bridge    local
