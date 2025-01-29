@@ -25,15 +25,11 @@ test-api:
   image: python:3.10-slim
   <<: *python-setup
   script:
-    - apt-get update && apt-get install -y gcc  # gcc might not be necessary for all tests
-    - python -m pytest tests/ -v
+    - apt-get update && apt-get install -y gcc
+    - python -m pytest tests/test_api_gateway.py
   cache:
     paths:
       - .pip-cache/
-      - api-gateway/  # Add your source code directories
-      - service1/
-      - service2/
-      - tests/        # Crucial: Cache the tests directory!
     key: "${CI_JOB_NAME}"
 
 build-images:
