@@ -26,7 +26,7 @@ test-api:
   <<: *python-setup
   script:
     - apt-get update && apt-get install -y gcc
-    - python -m pytest tests/test_api_gateway.py -v
+    - python -m pytest tests/test_api_gateway.py
   cache:
     paths:
       - .pip-cache/
