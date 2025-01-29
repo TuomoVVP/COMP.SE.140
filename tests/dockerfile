@@ -1,0 +1,13 @@
+FROM python:3.10-slim
+
+WORKDIR /app  
+
+COPY requirements.txt .  
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY test_api_gateway.py .
+
+# If you need system dependencies (like gcc for some tests)
+RUN apt-get update && apt-get install -y gcc
+
+CMD ["pytest", "tests/test_api_gateway.py"]  
