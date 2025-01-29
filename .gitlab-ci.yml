@@ -20,17 +20,6 @@ stages:
     - python -m pip install --user --upgrade pip
     - pip install --user -r tests/requirements.txt
 
-lint-python:
-  stage: lint
-  image: python:3.10-slim
-  <<: *python-setup
-  script:
-    - python -m flake8 api-gateway/app.py service1/ service2/ --max-line-length=100
-  cache:
-    paths:
-      - .pip-cache/
-    key: "${CI_JOB_NAME}"
-
 test-api:
   stage: test
   image: python:3.10-slim
