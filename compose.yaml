@@ -29,6 +29,18 @@ services:
     networks:
       - app-network
 
+  api-gateway:
+    build:
+      context: ./api-gateway
+    ports:
+      - "8197:8197"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app-network
+    depends_on:
+      - nginx
+
   nginx:
     image: nginx:alpine
     ports:
