@@ -56,12 +56,6 @@ services:
       - service1-2
       - service1-3
 
-  tests:
-    build:
-      context: ./tests
-    networks:
-      - app-network
-
 networks:
   app-network:
     driver: bridge
